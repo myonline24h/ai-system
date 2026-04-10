@@ -1,13 +1,13 @@
 import asyncio
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
-from agents.team_leader import team_leader_agent
+from agents.agent import root_agent
 
 async def main():
     # Khởi tạo Runner và Session Service
     session_service = InMemorySessionService()
     runner = Runner(
-        agent=team_leader_agent,
+        agent=root_agent,
         session_service=session_service
     )
 
