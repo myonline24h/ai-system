@@ -1,0 +1,98 @@
+{
+    "eval_set_id": "greeting_weather_agent_set",
+    "name": "Greeting and Weather Agent Eval Set",
+    "description": "Evaluation set for greeting and weather agents",
+    "eval_cases": [
+        {
+            "eval_id": "greeting_case",
+            "conversation": [
+                {
+                    "invocation_id": "1",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "Chào bạn"
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": "Xin chào! Tôi có thể giúp gì cho bạn hôm nay?"
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "tool_uses": [],
+                        "intermediate_responses": [
+                            [
+                                "GreetingAgent",
+                                [
+                                    {
+                                        "text": "Xin chào! Tôi là trợ lý chào hỏi. Rất vui được giúp bạn."
+                                    }
+                                ]
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "ai-system",
+                "user_id": "test_user",
+                "state": {}
+            }
+        },
+        {
+            "eval_id": "weather_case",
+            "conversation": [
+                {
+                    "invocation_id": "2",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "Thời tiết Hà Nội hôm nay thế nào?"
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": "Thời tiết ở Hà Nội là Nhiều mây, 25°C."
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "tool_uses": [
+                            {
+                                "args": {
+                                    "city": "hanoi"
+                                },
+                                "name": "get_weather"
+                            }
+                        ],
+                        "intermediate_responses": [
+                            [
+                                "WeatherAgent",
+                                [
+                                    {
+                                        "text": "Thời tiết ở Hà Nội hiện tại là Nhiều mây, 25°C."
+                                    }
+                                ]
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "ai-system",
+                "user_id": "test_user",
+                "state": {}
+            }
+        }
+    ]
+}
