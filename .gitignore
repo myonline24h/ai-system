@@ -8,3 +8,7 @@ wheels/
 
 # Virtual environments
 .venv
+
+# ADK session data
+.adk/
+**/session.db
