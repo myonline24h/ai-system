@@ -1,0 +1,10 @@
+model_provider = "litellm"
+model = "ollama"
+[model_providers.litellm]
+name = "LiteLLM Local Proxy"
+base_url = "http://localhost:4000/v1"
+env_key = "LITELLM_API_KEY"
+
+
+# export LITELLM_API_KEY=sk-1234
+# codex -c model_provider='"litellm"' -m ollama
