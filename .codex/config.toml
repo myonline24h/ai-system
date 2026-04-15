@@ -1,0 +1,33 @@
+# ======================
+# Default (cloud)
+# ======================
+model = "gpt-5.4"
+# không cần model_provider → dùng OpenAI mặc định
+
+# ======================
+# Local profile (LiteLLM)
+# ======================
+[profiles.local]
+model = "ollama"
+model_provider = "litellm"
+
+# ======================
+# Cloud profile (explicit)
+# ======================
+[profiles.cloud]
+model = "gpt-5.4"
+
+# ======================
+# LiteLLM provider
+# ======================
+[model_providers.litellm]
+name = "LiteLLM Local Proxy"
+base_url = "http://localhost:4000/v1"
+env_key = "LITELLM_API_KEY"
+
+
+# export LITELLM_API_KEY=sk-1234
+# codex -c model_provider='"litellm"' -m ollama
+
+# codex => use profile cloud
+# codex -p local => use profile local
